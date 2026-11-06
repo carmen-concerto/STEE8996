@@ -1,13 +1,3 @@
-#!/bin/bash
-#SBATCH --job-name=mutect2_Z1
-#SBATCH --partition=cpu
-#SBATCH --nodes=1
-#SBATCH --ntasks=8
-#SBATCH --mem=40G
-#SBATCH --time=12:00:00
-#SBATCH --output=mutect2_Z1_%j.out
-#SBATCH --error=mutect2_Z1_%j.err
-
 # Load modules
 module load uri/main
 module load Java/11.0.16
@@ -16,13 +6,13 @@ module load GATK/4.3.0.0-GCCcore-11.3.0-Java-11
 module load samtools/1.19.2
 
 # Reference genome
-REF="/work/pi_lijun_umass_edu/users/Melanie/projects/STEE_mouse/STEE_mouse/ref_Dilay/Fusarium_oxysporum_MRL8996_dha.fasta"
+REF="Fusarium_oxysporum_MRL8996_dha.fasta"
 
 # Tumor (evolved) BAM
-TUMOR_BAM="/work/pi_lijun_umass_edu/users/Melanie/projects/STEE_mouse/STEE_mouse/Z1/A_CKDN220037208-1A_H3GJMDSX5_L3.fixmate.dedup.recal.bam"
+TUMOR_BAM="A_CKDN220037208-1A_H3GJMDSX5_L3.fixmate.dedup.recal.bam"
 
 # Normal (ancestral) BAM
-NORMAL_BAM="/work/pi_lijun_umass_edu/users/Melanie/projects/STEE_mouse/STEE_mouse/D19/bam/D19_FDSW202340874-1r_H5HYHDSXY_L3.fixmate.dedup.RG.bam"
+NORMAL_BAM="D19_FDSW202340874-1r_H5HYHDSXY_L3.fixmate.dedup.RG.bam"
 NORMAL_NAME="D19_FDSW202340874-1r_H5HYHDSXY_L3"
 
 # Output files
